@@ -74,7 +74,8 @@ jobs:
       working-directory: ./openwrt
       run: |
         git clone https://github.com/Lienol/openwrt-package package/lienol
-        git clone https://github.com/tty228/luci-app-serverchan.git package/serverchan    
+        git clone https://github.com/tty228/luci-app-serverchan.git package/serverchan
+        git clone https://github.com/rufengsuixing/luci-app-adguardhome.git package/adguardhome
 
     - name: Configuration Customization - Build_x86_64
       env:
