@@ -76,8 +76,9 @@ jobs:
         git clone https://github.com/tty228/luci-app-serverchan.git package/serverchan
         git clone https://github.com/rufengsuixing/luci-app-adguardhome.git package/adguardhome
         git clone https://github.com/Lienol/openwrt-package package/lienol
-        git clone https://github.com/rosywrt/luci-theme-rosy.git package/luci-theme-rosy
-        
+        git clone https://github.com/rosywrt/luci-theme-rosy.git package/luci-theme-ros 
+        git clone https://github.com/fw876/helloworld?files=1 package/luci-app-ssr-plusy
+           
     - name: Configuration Customization - Build_x86_64
       env:
         CONFIG_FILE: 'x86_64.config'
