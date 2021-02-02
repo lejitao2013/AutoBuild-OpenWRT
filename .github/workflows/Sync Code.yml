@@ -9,9 +9,9 @@
 name: Sync Code from eSir Autobuild Script
 
 on:
-#  push:
-#    branches: 
-#      - master
+  push:
+    branches: 
+      - master
 
   schedule:
     - cron: 0 19 * * *
