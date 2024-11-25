@@ -99,28 +99,3 @@ jobs:
         name: OpenWrt_bin${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
         path: openwrt/bin
 
-    - name: Generate release tag
-      id: tag
-      if: env.UPLOAD_RELEASE == 'true' && !cancelled()
-      run: |
-        echo "release_tag=$(date +"%Y.%m.%d-%H%M")" >> $GITHUB_OUTPUT
-        touch release.txt
-        echo -e "##### OpenWrt 固件信息 \n \t- 使用lede的源码 \n \t- 默认网关: 192.168.10.1 \n \t- 默认用户: root \n \t- 默认密码: password \n \t- 已装插件: (后续再补充)" >> release.txt
-        echo "status=success" >> $GITHUB_OUTPUT
-
-    - name: Upload firmware to release
-      uses: softprops/action-gh-release@v1
-      if: steps.tag.outputs.status == 'success' && !cancelled()
-      env:
-        GITHUB_TOKEN: ${{ secrets_GITHUB_TOKEN }}
-      with:
-        tag_name: ${{ steps.tag.outputs.release_tag }}
-        body_path: release.txt
-        files: ${{ env.FIRMWARE }}/*
-
-    - name: Delete workflow runs
-      uses: LeeHe-gif/delete-workflow-runs@main
-      with:
-        retain_days: 1
-        keep_minimum_runs: 3
-        token: ${{ secrets_GITHUB_TOKEN }}
