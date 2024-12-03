@@ -23,3 +23,6 @@ sed -i '/uci commit system/i\uci set system.@system[0].hostname='OpenWrt''  open
 
 #5 版本号里显示一个自己的名字（281677160 build $(TZ=UTC-8 date "+%Y.%m.%d") @ 这些都是后增加的）
 sed -i "s/lede /lejitao build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g"  openwrt/package/lean/default-settings/files/zzz-default-settings
+
+# 修改默认地区
+sed -i "/timezone/a\\\t\tset system.@system[-1].zonename='Asia/Shanghai'" ./package/base-files/files/bin/config_generate
