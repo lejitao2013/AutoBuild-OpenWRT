@@ -6,7 +6,7 @@
 # Youtube Channel: https://goo.gl/fvkdwm 
 #=================================================
 #1. Modify default IP
-sed -i 's/192.168.1.1/192.168.50.1/g' package/base-files/files/bin/config_generate
+# sed -i 's/192.168.1.1/192.168.50.1/g' package/base-files/files/bin/config_generate
 
 # 新版LUCI的ip修改地址
 sed -i 's/192.168.1.1/192.168.50.1/g' package/base-files/luci2/bin/config_generate
