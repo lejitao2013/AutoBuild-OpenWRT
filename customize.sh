@@ -23,4 +23,6 @@ sed -i '/uci commit system/i\uci set system.@system[0].hostname='OpenWrt''  open
 #5 版本号里显示一个自己的名字（281677160 build $(TZ=UTC-8 date "+%Y.%m.%d") @ 这些都是后增加的）
 sed -i "s/OpenWrt /lejitao build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g"  openwrt/package/lean/default-settings/files/zzz-default-settings
 
-
+#增加helloworld
+sed -i "/helloworld/d" "feeds.conf.default"
+echo "src-git helloworld https://github.com/fw876/helloworld.git" >> "feeds.conf.default"
