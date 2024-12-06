@@ -59,11 +59,13 @@ jobs:
       working-directory: ./openwrt
       run: |
         ./scripts/feeds update -a
+        ./scripts/feeds update helloworld
    
     - name: Install feeds
       working-directory: ./openwrt
       run: |
         ./scripts/feeds install -a
+        ./scripts/feeds install -a -f -p helloworld
         
     - name: Configuration Customization - Build_x86_64
       env:
