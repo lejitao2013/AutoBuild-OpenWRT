@@ -24,5 +24,5 @@ sed -i '/uci commit system/i\uci set system.@system[0].hostname='OpenWrt''  open
 sed -i "s/LEDE /lejitao build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g"  openwrt/package/lean/default-settings/files/zzz-default-settings
 
 #增加helloworld
-#sed -i "/helloworld/d" "feeds.conf.default"
-#echo "src-git helloworld https://github.com/fw876/helloworld.git" >> "feeds.conf.default"
+sed -i "/helloworld/d" "feeds.conf.default"
+echo "src-git helloworld https://github.com/fw876/helloworld.git" >> "feeds.conf.default"
